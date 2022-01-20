@@ -4,8 +4,6 @@ Imports System.IO
 Public Class Form1
 
 
-
-
     Public conn As New OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\Little Boy\Desktop\gym\database.accdb")
     Public dr As OleDbDataReader
 
@@ -50,15 +48,33 @@ Public Class Form1
 
     Sub _load()
         Try
-            DataGridView1.Rows.Clear()
+            ' DataGridView1.Rows.Clear()
+            ListView1.Items.Clear()
             conn.Open()
             Dim cmd As New OleDb.OleDbCommand("Select * from users", conn)
 
             dr = cmd.ExecuteReader
+
+
+
+
             While dr.Read
                 If dr.Item("id") <> "" Then
 
-                    DataGridView1.Rows.Add(dr.Item("id"), dr.Item("surname"), dr.Item("name"), dr.Item("email"), calcDate(dr.Item("start"), dr.Item("end")), dr.Item("phone"), dr.Item("subs"), dr.Item("start"), dr.Item("end"))
+                    'DataGridView1.Rows.Add(dr.Item("id"), dr.Item("surname"), dr.Item("name"), dr.Item("email"), calcDate(dr.Item("start"), dr.Item("end")), dr.Item("phone"), dr.Item("subs"), dr.Item("start"), dr.Item("end"))
+
+                    Dim newItem As New ListViewItem(dr.Item("id").ToString)
+                    newItem.SubItems.Add(dr.Item("surname"))
+                    newItem.SubItems.Add(dr.Item("name"))
+                    newItem.SubItems.Add(dr.Item("email"))
+                    newItem.SubItems.Add(calcDate(dr.Item("start"), dr.Item("end")))
+                    newItem.SubItems.Add(dr.Item("phone"))
+                    newItem.SubItems.Add(dr.Item("subs"))
+                    newItem.SubItems.Add(dr.Item("start"))
+                    newItem.SubItems.Add(dr.Item("end"))
+                    ListView1.Items.Add(newItem)
+
+
                 End If
 
             End While
@@ -255,33 +271,96 @@ Public Class Form1
 
 
 
-    Private Sub DataGridView1_CellMouseDoubleClick(sender As Object, e As DataGridViewCellMouseEventArgs) Handles DataGridView1.CellMouseDoubleClick
+    'Private Sub DataGridView1_CellMouseDoubleClick(sender As Object, e As DataGridViewCellMouseEventArgs)
 
-        Dim f As New userView
-        f.txt_id.Text = DataGridView1.SelectedRows(0).Cells(0).Value.ToString()
-        f.txt_nom.Text = DataGridView1.SelectedRows(0).Cells(1).Value.ToString()
-        f.txt_prenom.Text = DataGridView1.SelectedRows(0).Cells(2).Value.ToString()
-        f.txt_email.Text = DataGridView1.SelectedRows(0).Cells(3).Value.ToString()
-        f.txt_phone.Text = DataGridView1.SelectedRows(0).Cells(5).Value.ToString()
-        'f.txt_abn.Text = DataGridView1.SelectedRows(0).Cells(6).Value.ToString()
-        f.id = DataGridView1.SelectedRows(0).Cells(0).Value.ToString()
-        f.nom = DataGridView1.SelectedRows(0).Cells(2).Value.ToString()
+    '    Dim f As New userView
+    '    f.txt_id.Text = DataGridView1.SelectedRows(0).Cells(0).Value.ToString()
+    '    f.txt_nom.Text = DataGridView1.SelectedRows(0).Cells(1).Value.ToString()
+    '    f.txt_prenom.Text = DataGridView1.SelectedRows(0).Cells(2).Value.ToString()
+    '    f.txt_email.Text = DataGridView1.SelectedRows(0).Cells(3).Value.ToString()
+    '    f.txt_phone.Text = DataGridView1.SelectedRows(0).Cells(5).Value.ToString()
+    '    'f.txt_abn.Text = DataGridView1.SelectedRows(0).Cells(6).Value.ToString()
+    '    f.id = DataGridView1.SelectedRows(0).Cells(0).Value.ToString()
+    '    f.nom = DataGridView1.SelectedRows(0).Cells(2).Value.ToString()
 
-        f.Show()
+    '    f.Show()
 
-    End Sub
+    'End Sub
+
 
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
         user_Ren.Show()
     End Sub
 
+    'Private Sub RenovellLabonnementToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RenovellLabonnementToolStripMenuItem.Click
+    '    Try
+    '        Dim f As New user_Ren2
+    '        f.id = DataGridView1.SelectedRows(0).Cells(0).Value.ToString()
+    '        f.Label2.Text = "ID : " & DataGridView1.SelectedRows(0).Cells(0).Value.ToString()
+    '        f.Label3.Text = "Nom : " & DataGridView1.SelectedRows(0).Cells(1).Value.ToString()
+    '        f.Text = DataGridView1.SelectedRows(0).Cells(0).Value.ToString()
+    '        f.Show()
+    '    Catch ex As Exception
+
+    '    End Try
+
+    'End Sub
+
+    'Private Sub EditeToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EditeToolStripMenuItem.Click
+
+    '    Dim f As New userView
+    '    f.txt_id.Text = DataGridView1.SelectedRows(0).Cells(0).Value.ToString()
+    '    f.txt_nom.Text = DataGridView1.SelectedRows(0).Cells(1).Value.ToString()
+    '    f.txt_prenom.Text = DataGridView1.SelectedRows(0).Cells(2).Value.ToString()
+    '    f.txt_email.Text = DataGridView1.SelectedRows(0).Cells(3).Value.ToString()
+    '    f.txt_phone.Text = DataGridView1.SelectedRows(0).Cells(5).Value.ToString()
+    '    'f.txt_abn.Text = DataGridView1.SelectedRows(0).Cells(6).Value.ToString()
+    '    f.id = DataGridView1.SelectedRows(0).Cells(0).Value.ToString()
+    '    f.nom = DataGridView1.SelectedRows(0).Cells(2).Value.ToString()
+
+    '    f.Show()
+    'End Sub
+
+    'Private Sub SuprimeToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SuprimeToolStripMenuItem.Click
+    '    Dim result As DialogResult = MessageBox.Show("Supprime " & DataGridView1.SelectedRows(0).Cells(1).Value.ToString() & "??",
+    '                          "Confirme",
+    '                          MessageBoxButtons.YesNo)
+
+
+    '    If (result = DialogResult.Yes) Then
+    '        delete_user(DataGridView1.SelectedRows(0).Cells(0).Value.ToString())
+
+    '    End If
+
+
+    'End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        admin_para.Show()
+    End Sub
+
+
+    Private Sub ListView1_MouseDoubleClick(sender As Object, e As MouseEventArgs) Handles ListView1.MouseDoubleClick
+        Dim f As New userView
+        f.txt_id.Text = ListView1.SelectedItems.Item(0).SubItems(0).Text
+        f.txt_nom.Text = ListView1.SelectedItems.Item(0).SubItems(1).Text
+        f.txt_prenom.Text = ListView1.SelectedItems.Item(0).SubItems(2).Text
+        f.txt_email.Text = ListView1.SelectedItems.Item(0).SubItems(3).Text
+        f.txt_phone.Text = ListView1.SelectedItems.Item(0).SubItems(4).Text
+
+        f.id = ListView1.SelectedItems.Item(0).SubItems(5).Text
+        f.nom = ListView1.SelectedItems.Item(0).SubItems(6).Text
+
+        f.Show()
+    End Sub
+
     Private Sub RenovellLabonnementToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RenovellLabonnementToolStripMenuItem.Click
         Try
             Dim f As New user_Ren2
-            f.id = DataGridView1.SelectedRows(0).Cells(0).Value.ToString()
-            f.Label2.Text = "ID : " & DataGridView1.SelectedRows(0).Cells(0).Value.ToString()
-            f.Label3.Text = "Nom : " & DataGridView1.SelectedRows(0).Cells(1).Value.ToString()
-            f.Text = DataGridView1.SelectedRows(0).Cells(0).Value.ToString()
+            f.id = ListView1.SelectedItems.Item(0).SubItems(0).Text
+            f.Label2.Text = "ID : " & ListView1.SelectedItems.Item(0).SubItems(0).Text
+            f.Label3.Text = "Nom : " & ListView1.SelectedItems.Item(0).SubItems(1).Text
+            f.Text = ListView1.SelectedItems.Item(0).SubItems(0).Text + " - " + ListView1.SelectedItems.Item(0).SubItems(1).Text + " " + ListView1.SelectedItems.Item(0).SubItems(2).Text
             f.Show()
         Catch ex As Exception
 
@@ -290,35 +369,15 @@ Public Class Form1
     End Sub
 
     Private Sub EditeToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EditeToolStripMenuItem.Click
-
         Dim f As New userView
-        f.txt_id.Text = DataGridView1.SelectedRows(0).Cells(0).Value.ToString()
-        f.txt_nom.Text = DataGridView1.SelectedRows(0).Cells(1).Value.ToString()
-        f.txt_prenom.Text = DataGridView1.SelectedRows(0).Cells(2).Value.ToString()
-        f.txt_email.Text = DataGridView1.SelectedRows(0).Cells(3).Value.ToString()
-        f.txt_phone.Text = DataGridView1.SelectedRows(0).Cells(5).Value.ToString()
-        'f.txt_abn.Text = DataGridView1.SelectedRows(0).Cells(6).Value.ToString()
-        f.id = DataGridView1.SelectedRows(0).Cells(0).Value.ToString()
-        f.nom = DataGridView1.SelectedRows(0).Cells(2).Value.ToString()
+        f.txt_id.Text = ListView1.SelectedItems.Item(0).SubItems(0).Text
+        f.txt_nom.Text = ListView1.SelectedItems.Item(0).SubItems(1).Text
+        f.txt_prenom.Text = ListView1.SelectedItems.Item(0).SubItems(2).Text
+        f.txt_email.Text = ListView1.SelectedItems.Item(0).SubItems(3).Text
+        f.txt_phone.Text = ListView1.SelectedItems.Item(0).SubItems(5).Text
+        f.id = ListView1.SelectedItems.Item(0).SubItems(0).Text
+        f.nom = ListView1.SelectedItems.Item(0).SubItems(2).Text
 
         f.Show()
-    End Sub
-
-    Private Sub SuprimeToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SuprimeToolStripMenuItem.Click
-        Dim result As DialogResult = MessageBox.Show("Supprime " & DataGridView1.SelectedRows(0).Cells(1).Value.ToString() & "??",
-                              "Confirme",
-                              MessageBoxButtons.YesNo)
-
-
-        If (result = DialogResult.Yes) Then
-            delete_user(DataGridView1.SelectedRows(0).Cells(0).Value.ToString())
-
-        End If
-
-
-    End Sub
-
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        admin_para.Show()
     End Sub
 End Class

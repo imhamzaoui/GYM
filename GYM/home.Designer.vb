@@ -23,18 +23,9 @@ Partial Class Form1
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
+        Dim ListViewItem1 As System.Windows.Forms.ListViewItem = New System.Windows.Forms.ListViewItem("")
         Me.Label1 = New System.Windows.Forms.Label()
         Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
-        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
-        Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.EditeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.RenovellLabonnementToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -42,7 +33,16 @@ Partial Class Form1
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Button3 = New System.Windows.Forms.Button()
         Me.Button1 = New System.Windows.Forms.Button()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.ListView1 = New System.Windows.Forms.ListView()
+        Me.ColumnHeader1 = New System.Windows.Forms.ColumnHeader()
+        Me.ColumnHeader2 = New System.Windows.Forms.ColumnHeader()
+        Me.ColumnHeader3 = New System.Windows.Forms.ColumnHeader()
+        Me.ColumnHeader4 = New System.Windows.Forms.ColumnHeader()
+        Me.ColumnHeader5 = New System.Windows.Forms.ColumnHeader()
+        Me.ColumnHeader6 = New System.Windows.Forms.ColumnHeader()
+        Me.ColumnHeader9 = New System.Windows.Forms.ColumnHeader()
+        Me.ColumnHeader10 = New System.Windows.Forms.ColumnHeader()
+        Me.ColumnHeader11 = New System.Windows.Forms.ColumnHeader()
         Me.ContextMenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -59,91 +59,11 @@ Partial Class Form1
         '
         'StatusStrip1
         '
-        Me.StatusStrip1.Location = New System.Drawing.Point(0, 545)
+        Me.StatusStrip1.Location = New System.Drawing.Point(0, 603)
         Me.StatusStrip1.Name = "StatusStrip1"
-        Me.StatusStrip1.Size = New System.Drawing.Size(1238, 22)
+        Me.StatusStrip1.Size = New System.Drawing.Size(1239, 22)
         Me.StatusStrip1.TabIndex = 2
         Me.StatusStrip1.Text = "StatusStrip1"
-        '
-        'DataGridView1
-        '
-        Me.DataGridView1.AllowUserToAddRows = False
-        Me.DataGridView1.AllowUserToDeleteRows = False
-        Me.DataGridView1.AllowUserToResizeRows = False
-        Me.DataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(CType(CType(112, Byte), Integer), CType(CType(111, Byte), Integer), CType(CType(211, Byte), Integer))
-        Me.DataGridView1.ColumnHeadersHeight = 30
-        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
-        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column2, Me.Column3, Me.Column4, Me.Column5, Me.Column6, Me.Column7, Me.Column8, Me.Column9})
-        Me.DataGridView1.ContextMenuStrip = Me.ContextMenuStrip1
-        Me.DataGridView1.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.DataGridView1.Location = New System.Drawing.Point(45, 126)
-        Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.ReadOnly = True
-        Me.DataGridView1.RowHeadersVisible = False
-        Me.DataGridView1.RowHeadersWidth = 20
-        Me.DataGridView1.RowTemplate.Height = 25
-        Me.DataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DataGridView1.Size = New System.Drawing.Size(1110, 359)
-        Me.DataGridView1.TabIndex = 5
-        '
-        'Column1
-        '
-        Me.Column1.HeaderText = "ID"
-        Me.Column1.Name = "Column1"
-        Me.Column1.ReadOnly = True
-        '
-        'Column2
-        '
-        Me.Column2.HeaderText = "Prenom"
-        Me.Column2.Name = "Column2"
-        Me.Column2.ReadOnly = True
-        '
-        'Column3
-        '
-        Me.Column3.HeaderText = "Nom"
-        Me.Column3.Name = "Column3"
-        Me.Column3.ReadOnly = True
-        '
-        'Column4
-        '
-        Me.Column4.HeaderText = "Email"
-        Me.Column4.MinimumWidth = 100
-        Me.Column4.Name = "Column4"
-        Me.Column4.ReadOnly = True
-        Me.Column4.Width = 200
-        '
-        'Column5
-        '
-        Me.Column5.HeaderText = "Status"
-        Me.Column5.MaxInputLength = 10
-        Me.Column5.Name = "Column5"
-        Me.Column5.ReadOnly = True
-        '
-        'Column6
-        '
-        Me.Column6.HeaderText = "Telephone"
-        Me.Column6.Name = "Column6"
-        Me.Column6.ReadOnly = True
-        '
-        'Column7
-        '
-        Me.Column7.HeaderText = "Abonnement"
-        Me.Column7.Name = "Column7"
-        Me.Column7.ReadOnly = True
-        '
-        'Column8
-        '
-        Me.Column8.HeaderText = "Enregistrement"
-        Me.Column8.Name = "Column8"
-        Me.Column8.ReadOnly = True
-        Me.Column8.Width = 120
-        '
-        'Column9
-        '
-        Me.Column9.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.Column9.HeaderText = "Date d'expiration"
-        Me.Column9.Name = "Column9"
-        Me.Column9.ReadOnly = True
         '
         'ContextMenuStrip1
         '
@@ -173,7 +93,7 @@ Partial Class Form1
         '
         Me.Button2.BackColor = System.Drawing.Color.White
         Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button2.Location = New System.Drawing.Point(642, 72)
+        Me.Button2.Location = New System.Drawing.Point(733, 59)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(75, 25)
         Me.Button2.TabIndex = 6
@@ -202,15 +122,75 @@ Partial Class Form1
         Me.Button1.Text = "Parametre"
         Me.Button1.UseVisualStyleBackColor = False
         '
+        'ListView1
+        '
+        Me.ListView1.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader1, Me.ColumnHeader2, Me.ColumnHeader3, Me.ColumnHeader4, Me.ColumnHeader5, Me.ColumnHeader6, Me.ColumnHeader9, Me.ColumnHeader10, Me.ColumnHeader11})
+        Me.ListView1.ContextMenuStrip = Me.ContextMenuStrip1
+        Me.ListView1.Font = New System.Drawing.Font("Segoe UI", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.ListView1.ForeColor = System.Drawing.Color.Black
+        Me.ListView1.FullRowSelect = True
+        Me.ListView1.Items.AddRange(New System.Windows.Forms.ListViewItem() {ListViewItem1})
+        Me.ListView1.Location = New System.Drawing.Point(139, 215)
+        Me.ListView1.Name = "ListView1"
+        Me.ListView1.Size = New System.Drawing.Size(1088, 369)
+        Me.ListView1.TabIndex = 10
+        Me.ListView1.UseCompatibleStateImageBehavior = False
+        Me.ListView1.View = System.Windows.Forms.View.Details
+        '
+        'ColumnHeader1
+        '
+        Me.ColumnHeader1.Text = "ID"
+        Me.ColumnHeader1.Width = 90
+        '
+        'ColumnHeader2
+        '
+        Me.ColumnHeader2.Text = "Prenom"
+        Me.ColumnHeader2.Width = 110
+        '
+        'ColumnHeader3
+        '
+        Me.ColumnHeader3.Text = "Nom"
+        Me.ColumnHeader3.Width = 110
+        '
+        'ColumnHeader4
+        '
+        Me.ColumnHeader4.Text = "Email"
+        Me.ColumnHeader4.Width = 160
+        '
+        'ColumnHeader5
+        '
+        Me.ColumnHeader5.Text = "Status"
+        Me.ColumnHeader5.Width = 80
+        '
+        'ColumnHeader6
+        '
+        Me.ColumnHeader6.Text = "Telephone"
+        Me.ColumnHeader6.Width = 100
+        '
+        'ColumnHeader9
+        '
+        Me.ColumnHeader9.Text = "Abonnement"
+        Me.ColumnHeader9.Width = 110
+        '
+        'ColumnHeader10
+        '
+        Me.ColumnHeader10.Text = "Enregistrement"
+        Me.ColumnHeader10.Width = 160
+        '
+        'ColumnHeader11
+        '
+        Me.ColumnHeader11.Text = "Date d'expiration"
+        Me.ColumnHeader11.Width = 160
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(112, Byte), Integer), CType(CType(111, Byte), Integer), CType(CType(211, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(1238, 567)
+        Me.ClientSize = New System.Drawing.Size(1239, 625)
+        Me.Controls.Add(Me.ListView1)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.Button3)
-        Me.Controls.Add(Me.DataGridView1)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.StatusStrip1)
         Me.Controls.Add(Me.Label1)
@@ -218,7 +198,6 @@ Partial Class Form1
         Me.ShowIcon = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "GYM"
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ContextMenuStrip1.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
@@ -228,20 +207,20 @@ Partial Class Form1
     Friend WithEvents Label1 As Label
     Friend WithEvents StatusStrip1 As StatusStrip
     Friend WithEvents Button2 As Button
-    Friend WithEvents DataGridView1 As DataGridView
-    Friend WithEvents Column1 As DataGridViewTextBoxColumn
-    Friend WithEvents Column2 As DataGridViewTextBoxColumn
-    Friend WithEvents Column3 As DataGridViewTextBoxColumn
-    Friend WithEvents Column4 As DataGridViewTextBoxColumn
-    Friend WithEvents Column5 As DataGridViewTextBoxColumn
-    Friend WithEvents Column6 As DataGridViewTextBoxColumn
-    Friend WithEvents Column7 As DataGridViewTextBoxColumn
-    Friend WithEvents Column8 As DataGridViewTextBoxColumn
-    Friend WithEvents Column9 As DataGridViewTextBoxColumn
     Friend WithEvents Button3 As Button
     Friend WithEvents ContextMenuStrip1 As ContextMenuStrip
     Friend WithEvents EditeToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents RenovellLabonnementToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents SuprimeToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents Button1 As Button
+    Friend WithEvents ListView1 As ListView
+    Friend WithEvents ColumnHeader1 As ColumnHeader
+    Friend WithEvents ColumnHeader2 As ColumnHeader
+    Friend WithEvents ColumnHeader3 As ColumnHeader
+    Friend WithEvents ColumnHeader4 As ColumnHeader
+    Friend WithEvents ColumnHeader5 As ColumnHeader
+    Friend WithEvents ColumnHeader6 As ColumnHeader
+    Friend WithEvents ColumnHeader9 As ColumnHeader
+    Friend WithEvents ColumnHeader10 As ColumnHeader
+    Friend WithEvents ColumnHeader11 As ColumnHeader
 End Class
