@@ -42,8 +42,8 @@ Partial Class Form1
         Me.ColumnHeader9 = New System.Windows.Forms.ColumnHeader()
         Me.ColumnHeader10 = New System.Windows.Forms.ColumnHeader()
         Me.ColumnHeader11 = New System.Windows.Forms.ColumnHeader()
-        Me.Button4 = New System.Windows.Forms.Button()
         Me.Label2 = New System.Windows.Forms.Label()
+        Me.TestToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ContextMenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -62,10 +62,10 @@ Partial Class Form1
         'ContextMenuStrip1
         '
         Me.ContextMenuStrip1.BackColor = System.Drawing.Color.FromArgb(CType(CType(112, Byte), Integer), CType(CType(111, Byte), Integer), CType(CType(211, Byte), Integer))
-        Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.RenovellLabonnementToolStripMenuItem, Me.EditeToolStripMenuItem, Me.SuprimeToolStripMenuItem})
+        Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.RenovellLabonnementToolStripMenuItem, Me.EditeToolStripMenuItem, Me.SuprimeToolStripMenuItem, Me.TestToolStripMenuItem})
         Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
         Me.ContextMenuStrip1.ShowImageMargin = False
-        Me.ContextMenuStrip1.Size = New System.Drawing.Size(172, 70)
+        Me.ContextMenuStrip1.Size = New System.Drawing.Size(172, 114)
         '
         'RenovellLabonnementToolStripMenuItem
         '
@@ -184,15 +184,6 @@ Partial Class Form1
         Me.ColumnHeader11.Text = "Date d'expiration"
         Me.ColumnHeader11.Width = 150
         '
-        'Button4
-        '
-        Me.Button4.Location = New System.Drawing.Point(337, 90)
-        Me.Button4.Name = "Button4"
-        Me.Button4.Size = New System.Drawing.Size(75, 23)
-        Me.Button4.TabIndex = 11
-        Me.Button4.Text = "Button4"
-        Me.Button4.UseVisualStyleBackColor = True
-        '
         'Label2
         '
         Me.Label2.AutoSize = True
@@ -203,6 +194,12 @@ Partial Class Form1
         Me.Label2.TabIndex = 12
         Me.Label2.Text = "Nombre total de clients : 0"
         '
+        'TestToolStripMenuItem
+        '
+        Me.TestToolStripMenuItem.Name = "TestToolStripMenuItem"
+        Me.TestToolStripMenuItem.Size = New System.Drawing.Size(171, 22)
+        Me.TestToolStripMenuItem.Text = "test"
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
@@ -210,7 +207,6 @@ Partial Class Form1
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(112, Byte), Integer), CType(CType(111, Byte), Integer), CType(CType(211, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(1435, 717)
         Me.Controls.Add(Me.Label2)
-        Me.Controls.Add(Me.Button4)
         Me.Controls.Add(Me.ListView1)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.Button3)
@@ -244,6 +240,6 @@ Partial Class Form1
     Friend WithEvents ColumnHeader9 As ColumnHeader
     Friend WithEvents ColumnHeader10 As ColumnHeader
     Friend WithEvents ColumnHeader11 As ColumnHeader
-    Friend WithEvents Button4 As Button
     Friend WithEvents Label2 As Label
+    Friend WithEvents TestToolStripMenuItem As ToolStripMenuItem
 End Class

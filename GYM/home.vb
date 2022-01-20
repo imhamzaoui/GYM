@@ -9,41 +9,6 @@ Public Class Form1
 
 
 
-    'API Declaration in General Declarations
-    Private Declare Function SendMessage Lib "user32.dll" Alias "SendMessageA" (ByVal hwnd As IntPtr, ByVal wMsg As Int32, ByVal wParam As Int32, ByVal lParam As Int32) As Int32
-
-    'API Constants
-    Const SET_COLUMN_WIDTH As Long = 4126
-    Const AUTOSIZE_USEHEADER As Long = -2
-
-    'Sub To Resize
-    Private Sub AppNewAutosizeColumns(ByVal TargetListView As ListView)
-
-        Const SET_COLUMN_WIDTH As Long = 4126
-        Const AUTOSIZE_USEHEADER As Long = -2
-
-        Dim lngColumn As Long
-
-        For lngColumn = 0 To (TargetListView.Columns.Count - 1)
-
-            Call SendMessage(TargetListView.Handle,
-                SET_COLUMN_WIDTH,
-                lngColumn,
-                AUTOSIZE_USEHEADER)
-
-        Next lngColumn
-
-    End Sub
-
-    'The Call
-
-
-
-
-
-
-
-
 
 
 
@@ -85,7 +50,9 @@ Public Class Form1
 #End Region
 
 
-
+    Sub set_nb()
+        Label2.Text = "Nombre total de clients : " + ListView1.Items.Count.ToString
+    End Sub
 
 
     Sub _load()
@@ -115,7 +82,7 @@ Public Class Form1
                     newItem.SubItems.Add(dr.Item("start"))
                     newItem.SubItems.Add(dr.Item("end"))
                     ListView1.Items.Add(newItem)
-
+                    set_nb()
 
                 End If
 
@@ -368,17 +335,17 @@ Public Class Form1
     End Sub
 
     Private Sub SuprimeToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SuprimeToolStripMenuItem.Click
-        Dim result As DialogResult = MessageBox.Show("Supprime " & ListView1.SelectedItems.Item(0).SubItems(1).Text & "??",
+        For Each lvi As ListViewItem In ListView1.SelectedItems
+            Dim result As DialogResult = MessageBox.Show("Supprimé [" & lvi.Text & "]   ??" & vbNewLine & "NOM        : " & lvi.SubItems(2).Text.ToUpper & vbNewLine & "PRENOM : " & lvi.SubItems(1).Text.ToUpper,
                              "Confirme",
                                   MessageBoxButtons.YesNo)
-        If (result = DialogResult.Yes) Then
-            delete_user(ListView1.SelectedItems.Item(0).SubItems(0).Text)
-        End If
+            If (result = DialogResult.Yes) Then
+                delete_user(lvi.Text)
+            End If
+        Next
     End Sub
 
-    Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
-        For i As Integer = 0 To ListView1.Columns.Count - 1
-            ListView1.Columns(i).Width = -2
-        Next i
+    Private Sub TestToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles TestToolStripMenuItem.Click
+
     End Sub
 End Class
