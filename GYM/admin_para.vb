@@ -39,7 +39,7 @@ Public Class admin_para
             cmd.ExecuteNonQuery()
             cmd.Dispose()
             conn.Close()
-            MsgBox("Done")
+            'MsgBox("Done")
         Catch ex As Exception
             MsgBox(ex.ToString)
         End Try

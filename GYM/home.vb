@@ -7,6 +7,47 @@ Public Class Form1
     Public conn As New OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\Little Boy\Desktop\gym\database.accdb")
     Public dr As OleDbDataReader
 
+
+
+    'API Declaration in General Declarations
+    Private Declare Function SendMessage Lib "user32.dll" Alias "SendMessageA" (ByVal hwnd As IntPtr, ByVal wMsg As Int32, ByVal wParam As Int32, ByVal lParam As Int32) As Int32
+
+    'API Constants
+    Const SET_COLUMN_WIDTH As Long = 4126
+    Const AUTOSIZE_USEHEADER As Long = -2
+
+    'Sub To Resize
+    Private Sub AppNewAutosizeColumns(ByVal TargetListView As ListView)
+
+        Const SET_COLUMN_WIDTH As Long = 4126
+        Const AUTOSIZE_USEHEADER As Long = -2
+
+        Dim lngColumn As Long
+
+        For lngColumn = 0 To (TargetListView.Columns.Count - 1)
+
+            Call SendMessage(TargetListView.Handle,
+                SET_COLUMN_WIDTH,
+                lngColumn,
+                AUTOSIZE_USEHEADER)
+
+        Next lngColumn
+
+    End Sub
+
+    'The Call
+
+
+
+
+
+
+
+
+
+
+
+
 #Region "functions"
     Function calcDate(ByRef d1 As String, ByRef d2 As String) As String
         Dim ss() As String = d1.Split("/")
@@ -17,7 +58,7 @@ Public Class Form1
         seconDate = Convert.ToDateTime(ss2(1) + "/" + ss2(0) + "/" + ss2(2))
         Dim op = (DateDiff(DateInterval.Day, firstDate, seconDate))
         If op > 0 Then
-            Return op.ToString + " day left"
+            Return op.ToString + " Jour restant"
         Else
             Return " Terminer ! (" + op.ToString + ")"
         End If
@@ -29,9 +70,10 @@ Public Class Form1
 #End Region
 
 
-
 #Region "Form events"
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        ' AppNewAutosizeColumns(ListView1)
+
 
         loadall()
     End Sub
@@ -108,8 +150,7 @@ Public Class Form1
         Try
             op.ExecuteNonQuery()
             op.Dispose()
-
-            MsgBox("delite done")
+            'MsgBox("delite done")
             loadall()
         Catch ex As Exception
             MsgBox(ex.ToString)
@@ -238,7 +279,7 @@ Public Class Form1
             conn.Close()
             Dim dk As Date = Now
             admin_para.add_tarif(dk, genID, subs)
-            MsgBox("Done")
+            'MsgBox("Done")
             loadall()
         Catch ex As Exception
             MsgBox(ex.ToString)
@@ -271,69 +312,14 @@ Public Class Form1
 
 
 
-    'Private Sub DataGridView1_CellMouseDoubleClick(sender As Object, e As DataGridViewCellMouseEventArgs)
 
-    '    Dim f As New userView
-    '    f.txt_id.Text = DataGridView1.SelectedRows(0).Cells(0).Value.ToString()
-    '    f.txt_nom.Text = DataGridView1.SelectedRows(0).Cells(1).Value.ToString()
-    '    f.txt_prenom.Text = DataGridView1.SelectedRows(0).Cells(2).Value.ToString()
-    '    f.txt_email.Text = DataGridView1.SelectedRows(0).Cells(3).Value.ToString()
-    '    f.txt_phone.Text = DataGridView1.SelectedRows(0).Cells(5).Value.ToString()
-    '    'f.txt_abn.Text = DataGridView1.SelectedRows(0).Cells(6).Value.ToString()
-    '    f.id = DataGridView1.SelectedRows(0).Cells(0).Value.ToString()
-    '    f.nom = DataGridView1.SelectedRows(0).Cells(2).Value.ToString()
 
-    '    f.Show()
 
-    'End Sub
 
 
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
         user_Ren.Show()
     End Sub
-
-    'Private Sub RenovellLabonnementToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RenovellLabonnementToolStripMenuItem.Click
-    '    Try
-    '        Dim f As New user_Ren2
-    '        f.id = DataGridView1.SelectedRows(0).Cells(0).Value.ToString()
-    '        f.Label2.Text = "ID : " & DataGridView1.SelectedRows(0).Cells(0).Value.ToString()
-    '        f.Label3.Text = "Nom : " & DataGridView1.SelectedRows(0).Cells(1).Value.ToString()
-    '        f.Text = DataGridView1.SelectedRows(0).Cells(0).Value.ToString()
-    '        f.Show()
-    '    Catch ex As Exception
-
-    '    End Try
-
-    'End Sub
-
-    'Private Sub EditeToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EditeToolStripMenuItem.Click
-
-    '    Dim f As New userView
-    '    f.txt_id.Text = DataGridView1.SelectedRows(0).Cells(0).Value.ToString()
-    '    f.txt_nom.Text = DataGridView1.SelectedRows(0).Cells(1).Value.ToString()
-    '    f.txt_prenom.Text = DataGridView1.SelectedRows(0).Cells(2).Value.ToString()
-    '    f.txt_email.Text = DataGridView1.SelectedRows(0).Cells(3).Value.ToString()
-    '    f.txt_phone.Text = DataGridView1.SelectedRows(0).Cells(5).Value.ToString()
-    '    'f.txt_abn.Text = DataGridView1.SelectedRows(0).Cells(6).Value.ToString()
-    '    f.id = DataGridView1.SelectedRows(0).Cells(0).Value.ToString()
-    '    f.nom = DataGridView1.SelectedRows(0).Cells(2).Value.ToString()
-
-    '    f.Show()
-    'End Sub
-
-    'Private Sub SuprimeToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SuprimeToolStripMenuItem.Click
-    '    Dim result As DialogResult = MessageBox.Show("Supprime " & DataGridView1.SelectedRows(0).Cells(1).Value.ToString() & "??",
-    '                          "Confirme",
-    '                          MessageBoxButtons.YesNo)
-
-
-    '    If (result = DialogResult.Yes) Then
-    '        delete_user(DataGridView1.SelectedRows(0).Cells(0).Value.ToString())
-
-    '    End If
-
-
-    'End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         admin_para.Show()
@@ -379,5 +365,20 @@ Public Class Form1
         f.nom = ListView1.SelectedItems.Item(0).SubItems(2).Text
 
         f.Show()
+    End Sub
+
+    Private Sub SuprimeToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SuprimeToolStripMenuItem.Click
+        Dim result As DialogResult = MessageBox.Show("Supprime " & ListView1.SelectedItems.Item(0).SubItems(1).Text & "??",
+                             "Confirme",
+                                  MessageBoxButtons.YesNo)
+        If (result = DialogResult.Yes) Then
+            delete_user(ListView1.SelectedItems.Item(0).SubItems(0).Text)
+        End If
+    End Sub
+
+    Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
+        For i As Integer = 0 To ListView1.Columns.Count - 1
+            ListView1.Columns(i).Width = -2
+        Next i
     End Sub
 End Class

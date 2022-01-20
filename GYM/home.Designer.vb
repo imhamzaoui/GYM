@@ -25,10 +25,9 @@ Partial Class Form1
         Me.components = New System.ComponentModel.Container()
         Dim ListViewItem1 As System.Windows.Forms.ListViewItem = New System.Windows.Forms.ListViewItem("")
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
         Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
-        Me.EditeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.RenovellLabonnementToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.EditeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SuprimeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Button3 = New System.Windows.Forms.Button()
@@ -43,6 +42,8 @@ Partial Class Form1
         Me.ColumnHeader9 = New System.Windows.Forms.ColumnHeader()
         Me.ColumnHeader10 = New System.Windows.Forms.ColumnHeader()
         Me.ColumnHeader11 = New System.Windows.Forms.ColumnHeader()
+        Me.Button4 = New System.Windows.Forms.Button()
+        Me.Label2 = New System.Windows.Forms.Label()
         Me.ContextMenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -51,43 +52,41 @@ Partial Class Form1
         Me.Label1.AutoSize = True
         Me.Label1.BackColor = System.Drawing.Color.FromArgb(CType(CType(112, Byte), Integer), CType(CType(111, Byte), Integer), CType(CType(211, Byte), Integer))
         Me.Label1.Font = New System.Drawing.Font("Showcard Gothic", 21.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.Label1.ForeColor = System.Drawing.Color.White
         Me.Label1.Location = New System.Drawing.Point(33, 13)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(193, 36)
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "POWER GYM"
         '
-        'StatusStrip1
-        '
-        Me.StatusStrip1.Location = New System.Drawing.Point(0, 603)
-        Me.StatusStrip1.Name = "StatusStrip1"
-        Me.StatusStrip1.Size = New System.Drawing.Size(1239, 22)
-        Me.StatusStrip1.TabIndex = 2
-        Me.StatusStrip1.Text = "StatusStrip1"
-        '
         'ContextMenuStrip1
         '
-        Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.EditeToolStripMenuItem, Me.RenovellLabonnementToolStripMenuItem, Me.SuprimeToolStripMenuItem})
+        Me.ContextMenuStrip1.BackColor = System.Drawing.Color.FromArgb(CType(CType(112, Byte), Integer), CType(CType(111, Byte), Integer), CType(CType(211, Byte), Integer))
+        Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.RenovellLabonnementToolStripMenuItem, Me.EditeToolStripMenuItem, Me.SuprimeToolStripMenuItem})
         Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
-        Me.ContextMenuStrip1.Size = New System.Drawing.Size(194, 70)
-        '
-        'EditeToolStripMenuItem
-        '
-        Me.EditeToolStripMenuItem.Name = "EditeToolStripMenuItem"
-        Me.EditeToolStripMenuItem.Size = New System.Drawing.Size(193, 22)
-        Me.EditeToolStripMenuItem.Text = "Edit"
+        Me.ContextMenuStrip1.ShowImageMargin = False
+        Me.ContextMenuStrip1.Size = New System.Drawing.Size(172, 70)
         '
         'RenovellLabonnementToolStripMenuItem
         '
+        Me.RenovellLabonnementToolStripMenuItem.ForeColor = System.Drawing.Color.White
         Me.RenovellLabonnementToolStripMenuItem.Name = "RenovellLabonnementToolStripMenuItem"
-        Me.RenovellLabonnementToolStripMenuItem.Size = New System.Drawing.Size(193, 22)
-        Me.RenovellLabonnementToolStripMenuItem.Text = "renovell l'abonnement"
+        Me.RenovellLabonnementToolStripMenuItem.Size = New System.Drawing.Size(171, 22)
+        Me.RenovellLabonnementToolStripMenuItem.Text = "Renovell l'abonnement"
+        '
+        'EditeToolStripMenuItem
+        '
+        Me.EditeToolStripMenuItem.ForeColor = System.Drawing.Color.White
+        Me.EditeToolStripMenuItem.Name = "EditeToolStripMenuItem"
+        Me.EditeToolStripMenuItem.Size = New System.Drawing.Size(171, 22)
+        Me.EditeToolStripMenuItem.Text = "Modifier"
         '
         'SuprimeToolStripMenuItem
         '
+        Me.SuprimeToolStripMenuItem.ForeColor = System.Drawing.Color.White
         Me.SuprimeToolStripMenuItem.Name = "SuprimeToolStripMenuItem"
-        Me.SuprimeToolStripMenuItem.Size = New System.Drawing.Size(193, 22)
-        Me.SuprimeToolStripMenuItem.Text = "suprime"
+        Me.SuprimeToolStripMenuItem.Size = New System.Drawing.Size(171, 22)
+        Me.SuprimeToolStripMenuItem.Text = "Supprimé"
         '
         'Button2
         '
@@ -124,15 +123,18 @@ Partial Class Form1
         '
         'ListView1
         '
+        Me.ListView1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.ListView1.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader1, Me.ColumnHeader2, Me.ColumnHeader3, Me.ColumnHeader4, Me.ColumnHeader5, Me.ColumnHeader6, Me.ColumnHeader9, Me.ColumnHeader10, Me.ColumnHeader11})
         Me.ListView1.ContextMenuStrip = Me.ContextMenuStrip1
         Me.ListView1.Font = New System.Drawing.Font("Segoe UI", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.ListView1.ForeColor = System.Drawing.Color.Black
         Me.ListView1.FullRowSelect = True
         Me.ListView1.Items.AddRange(New System.Windows.Forms.ListViewItem() {ListViewItem1})
-        Me.ListView1.Location = New System.Drawing.Point(139, 215)
+        Me.ListView1.Location = New System.Drawing.Point(239, 172)
         Me.ListView1.Name = "ListView1"
-        Me.ListView1.Size = New System.Drawing.Size(1088, 369)
+        Me.ListView1.Size = New System.Drawing.Size(1184, 507)
         Me.ListView1.TabIndex = 10
         Me.ListView1.UseCompatibleStateImageBehavior = False
         Me.ListView1.View = System.Windows.Forms.View.Details
@@ -155,12 +157,12 @@ Partial Class Form1
         'ColumnHeader4
         '
         Me.ColumnHeader4.Text = "Email"
-        Me.ColumnHeader4.Width = 160
+        Me.ColumnHeader4.Width = 140
         '
         'ColumnHeader5
         '
         Me.ColumnHeader5.Text = "Status"
-        Me.ColumnHeader5.Width = 80
+        Me.ColumnHeader5.Width = 110
         '
         'ColumnHeader6
         '
@@ -175,24 +177,44 @@ Partial Class Form1
         'ColumnHeader10
         '
         Me.ColumnHeader10.Text = "Enregistrement"
-        Me.ColumnHeader10.Width = 160
+        Me.ColumnHeader10.Width = 150
         '
         'ColumnHeader11
         '
         Me.ColumnHeader11.Text = "Date d'expiration"
-        Me.ColumnHeader11.Width = 160
+        Me.ColumnHeader11.Width = 150
+        '
+        'Button4
+        '
+        Me.Button4.Location = New System.Drawing.Point(337, 90)
+        Me.Button4.Name = "Button4"
+        Me.Button4.Size = New System.Drawing.Size(75, 23)
+        Me.Button4.TabIndex = 11
+        Me.Button4.Text = "Button4"
+        Me.Button4.UseVisualStyleBackColor = True
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.ForeColor = System.Drawing.Color.White
+        Me.Label2.Location = New System.Drawing.Point(239, 693)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(146, 15)
+        Me.Label2.TabIndex = 12
+        Me.Label2.Text = "Nombre total de clients : 0"
         '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(112, Byte), Integer), CType(CType(111, Byte), Integer), CType(CType(211, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(1239, 625)
+        Me.ClientSize = New System.Drawing.Size(1435, 717)
+        Me.Controls.Add(Me.Label2)
+        Me.Controls.Add(Me.Button4)
         Me.Controls.Add(Me.ListView1)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.Button3)
         Me.Controls.Add(Me.Button2)
-        Me.Controls.Add(Me.StatusStrip1)
         Me.Controls.Add(Me.Label1)
         Me.Name = "Form1"
         Me.ShowIcon = False
@@ -205,7 +227,6 @@ Partial Class Form1
     End Sub
 
     Friend WithEvents Label1 As Label
-    Friend WithEvents StatusStrip1 As StatusStrip
     Friend WithEvents Button2 As Button
     Friend WithEvents Button3 As Button
     Friend WithEvents ContextMenuStrip1 As ContextMenuStrip
@@ -223,4 +244,6 @@ Partial Class Form1
     Friend WithEvents ColumnHeader9 As ColumnHeader
     Friend WithEvents ColumnHeader10 As ColumnHeader
     Friend WithEvents ColumnHeader11 As ColumnHeader
+    Friend WithEvents Button4 As Button
+    Friend WithEvents Label2 As Label
 End Class
