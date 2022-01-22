@@ -2,11 +2,17 @@
     Dim dt As String = DateTime.Now.ToString("dd/MM/yyyy")
 
 
+    Dim total_tarif() As String
+
 
 
     Private Sub newC_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Me.txt_enter.Text = dt
+        ' add tarif to label
 
+
+
+        Me.txt_enter.Text = dt
+        label_prix.Text = total_tarif(0).ToString + " DT"
 
     End Sub
     Dim _bol As Boolean = False
@@ -50,5 +56,19 @@
              AndAlso (e.KeyChar <> Microsoft.VisualBasic.ChrW(46)))) Then
             e.Handled = True
         End If
+    End Sub
+
+    Private Sub txt_abn_SelectedIndexChanged(sender As Object, e As EventArgs) Handles txt_abn.SelectedIndexChanged
+        total_tarif = admin_para.getuser().Split("-")
+        Select Case txt_abn.SelectedIndex
+            Case 0
+                label_prix.Text = total_tarif(0).ToString + " DT"
+            Case 1
+                label_prix.Text = total_tarif(1).ToString + " DT"
+            Case 2
+                label_prix.Text = total_tarif(2).ToString + " DT"
+            Case 3
+                label_prix.Text = total_tarif(3).ToString + " DT"
+        End Select
     End Sub
 End Class

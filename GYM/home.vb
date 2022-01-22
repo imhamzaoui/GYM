@@ -71,7 +71,6 @@ Public Class Form1
                 If dr.Item("id") <> "" Then
 
                     'DataGridView1.Rows.Add(dr.Item("id"), dr.Item("surname"), dr.Item("name"), dr.Item("email"), calcDate(dr.Item("start"), dr.Item("end")), dr.Item("phone"), dr.Item("subs"), dr.Item("start"), dr.Item("end"))
-
                     Dim newItem As New ListViewItem(dr.Item("id").ToString)
                     newItem.SubItems.Add(dr.Item("surname"))
                     newItem.SubItems.Add(dr.Item("name"))
@@ -248,17 +247,13 @@ Public Class Form1
             admin_para.add_tarif(dk, genID, subs)
             'MsgBox("Done")
             loadall()
+            Dim p As String = newC.label_prix.Text
+            newC.Close()
+            MsgBox(surname.ToString.ToUpper & " et Ajouté" & vbNewLine & " Tarif : " & p, vbInformation)
         Catch ex As Exception
             MsgBox(ex.ToString)
         End Try
     End Sub
-
-
-
-
-
-
-
 
     Function getop(ByRef d1, ByRef d2) As String
         Dim ss() As String
@@ -345,7 +340,75 @@ Public Class Form1
         Next
     End Sub
 
-    Private Sub TestToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles TestToolStripMenuItem.Click
+
+
+#Region "find_sector"
+
+
+
+    Private Sub PictureBox1_MouseEnter(sender As Object, e As EventArgs) Handles PictureBox1.MouseEnter
+        TextBox1.Select()
+    End Sub
+
+    Sub _find()
+        Try
+            'DataGridView1.Rows.Clear()
+            ListView1.Items.Clear()
+            conn.Open()
+            Dim cmd As New OleDb.OleDbCommand("Select * from users where id like '" & TextBox1.Text & "%' or name like '" & TextBox1.Text & "%' or surname like '" & TextBox1.Text & "%'", conn)
+
+            dr = cmd.ExecuteReader
+            While dr.Read
+                If dr.Item("id") <> "" Then
+                    Dim newItem As New ListViewItem(dr.Item("id").ToString)
+                    newItem.SubItems.Add(dr.Item("surname"))
+                    newItem.SubItems.Add(dr.Item("name"))
+                    newItem.SubItems.Add(dr.Item("email"))
+                    newItem.SubItems.Add(calcDate(dr.Item("start"), dr.Item("end")))
+                    newItem.SubItems.Add(dr.Item("phone"))
+                    newItem.SubItems.Add(dr.Item("subs"))
+                    newItem.SubItems.Add(dr.Item("start"))
+                    newItem.SubItems.Add(dr.Item("end"))
+                    ListView1.Items.Add(newItem)
+                    set_nb()
+
+
+                    'DataGridView1.Rows.Add(Form1.dr.Item("id"), Form1.dr.Item("surname"))
+
+                End If
+
+            End While
+            conn.Close()
+        Catch ex As Exception
+            MsgBox(ex.ToString)
+        End Try
 
     End Sub
+
+
+    Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
+        _find()
+    End Sub
+
+    Private Sub TextBox1_TextChanged(sender As Object, e As EventArgs) Handles TextBox1.TextChanged
+        If TextBox1.Text <> "" Then
+            _find()
+        Else
+            loadall()
+        End If
+    End Sub
+
+    Private Sub TextBox1_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TextBox1.KeyPress
+        If e.KeyChar = Microsoft.VisualBasic.ChrW(Keys.Return) Then
+            If TextBox1.Text <> "" Then
+                _find()
+            Else
+                loadall()
+            End If
+        End If
+    End Sub
+
+
+#End Region
+
 End Class

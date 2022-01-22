@@ -35,6 +35,10 @@ Partial Class newC
         Me.txt_abn = New System.Windows.Forms.ComboBox()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.Button1 = New System.Windows.Forms.Button()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.label_prix = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'Label1
@@ -146,18 +150,57 @@ Partial Class newC
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(214, 193)
+        Me.Button1.Location = New System.Drawing.Point(214, 239)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(183, 37)
         Me.Button1.TabIndex = 6
         Me.Button1.Text = "Add"
         Me.Button1.UseVisualStyleBackColor = True
         '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Location = New System.Drawing.Point(25, 157)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(74, 15)
+        Me.Label5.TabIndex = 16
+        Me.Label5.Text = "Promo Code"
+        '
+        'TextBox1
+        '
+        Me.TextBox1.Location = New System.Drawing.Point(25, 175)
+        Me.TextBox1.Name = "TextBox1"
+        Me.TextBox1.Size = New System.Drawing.Size(183, 23)
+        Me.TextBox1.TabIndex = 17
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Location = New System.Drawing.Point(214, 157)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(29, 15)
+        Me.Label6.TabIndex = 18
+        Me.Label6.Text = "Tarif"
+        '
+        'label_prix
+        '
+        Me.label_prix.AutoSize = True
+        Me.label_prix.Font = New System.Drawing.Font("Segoe UI", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.label_prix.Location = New System.Drawing.Point(316, 175)
+        Me.label_prix.Name = "label_prix"
+        Me.label_prix.Size = New System.Drawing.Size(81, 30)
+        Me.label_prix.TabIndex = 19
+        Me.label_prix.Text = "000 DT"
+        '
         'newC
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(422, 268)
+        Me.ClientSize = New System.Drawing.Size(422, 288)
+        Me.Controls.Add(Me.label_prix)
+        Me.Controls.Add(Me.Label6)
+        Me.Controls.Add(Me.TextBox1)
+        Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.Label8)
         Me.Controls.Add(Me.txt_abn)
@@ -191,4 +234,8 @@ Partial Class newC
     Friend WithEvents txt_abn As ComboBox
     Friend WithEvents Label8 As Label
     Friend WithEvents Button1 As Button
+    Friend WithEvents Label5 As Label
+    Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents Label6 As Label
+    Friend WithEvents label_prix As Label
 End Class

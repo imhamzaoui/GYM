@@ -37,100 +37,112 @@ Partial Class userView
         '
         'txt_phone
         '
-        Me.txt_phone.Location = New System.Drawing.Point(46, 166)
+        Me.txt_phone.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.txt_phone.Location = New System.Drawing.Point(31, 211)
         Me.txt_phone.Name = "txt_phone"
-        Me.txt_phone.Size = New System.Drawing.Size(183, 23)
+        Me.txt_phone.Size = New System.Drawing.Size(273, 29)
         Me.txt_phone.TabIndex = 23
         '
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(46, 148)
+        Me.Label4.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.Label4.Location = New System.Drawing.Point(31, 187)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(41, 15)
+        Me.Label4.Size = New System.Drawing.Size(54, 21)
         Me.Label4.TabIndex = 22
         Me.Label4.Text = "Phone"
         '
         'txt_email
         '
-        Me.txt_email.Location = New System.Drawing.Point(46, 211)
+        Me.txt_email.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.txt_email.Location = New System.Drawing.Point(31, 267)
         Me.txt_email.Name = "txt_email"
-        Me.txt_email.Size = New System.Drawing.Size(183, 23)
+        Me.txt_email.Size = New System.Drawing.Size(273, 29)
         Me.txt_email.TabIndex = 21
         '
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(46, 193)
+        Me.Label3.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.Label3.Location = New System.Drawing.Point(31, 243)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(36, 15)
+        Me.Label3.Size = New System.Drawing.Size(48, 21)
         Me.Label3.TabIndex = 20
         Me.Label3.Text = "Email"
         '
         'txt_prenom
         '
-        Me.txt_prenom.Location = New System.Drawing.Point(46, 122)
+        Me.txt_prenom.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.txt_prenom.Location = New System.Drawing.Point(31, 155)
         Me.txt_prenom.Name = "txt_prenom"
-        Me.txt_prenom.Size = New System.Drawing.Size(183, 23)
+        Me.txt_prenom.Size = New System.Drawing.Size(273, 29)
         Me.txt_prenom.TabIndex = 19
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(46, 104)
+        Me.Label2.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.Label2.Location = New System.Drawing.Point(31, 131)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(49, 15)
+        Me.Label2.Size = New System.Drawing.Size(65, 21)
         Me.Label2.TabIndex = 18
         Me.Label2.Text = "Prenom"
         '
         'txt_nom
         '
-        Me.txt_nom.Location = New System.Drawing.Point(46, 78)
+        Me.txt_nom.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.txt_nom.Location = New System.Drawing.Point(31, 99)
         Me.txt_nom.Name = "txt_nom"
-        Me.txt_nom.Size = New System.Drawing.Size(183, 23)
+        Me.txt_nom.Size = New System.Drawing.Size(273, 29)
         Me.txt_nom.TabIndex = 17
         Me.txt_nom.Tag = ""
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(46, 60)
+        Me.Label1.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.Label1.Location = New System.Drawing.Point(31, 75)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(34, 15)
+        Me.Label1.Size = New System.Drawing.Size(45, 21)
         Me.Label1.TabIndex = 16
         Me.Label1.Text = "Nom"
         '
         'txt_id
         '
-        Me.txt_id.Location = New System.Drawing.Point(46, 34)
+        Me.txt_id.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.txt_id.Location = New System.Drawing.Point(31, 49)
         Me.txt_id.Name = "txt_id"
-        Me.txt_id.Size = New System.Drawing.Size(183, 23)
+        Me.txt_id.Size = New System.Drawing.Size(271, 29)
         Me.txt_id.TabIndex = 27
         Me.txt_id.Tag = ""
         '
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(46, 16)
+        Me.Label5.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.Label5.Location = New System.Drawing.Point(31, 25)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(18, 15)
+        Me.Label5.Size = New System.Drawing.Size(25, 21)
         Me.Label5.TabIndex = 26
         Me.Label5.Text = "ID"
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(46, 262)
+        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button1.Location = New System.Drawing.Point(31, 319)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(181, 48)
+        Me.Button1.Size = New System.Drawing.Size(273, 35)
         Me.Button1.TabIndex = 29
-        Me.Button1.Text = "Save"
+        Me.Button1.Text = "Enregistrement"
         Me.Button1.UseVisualStyleBackColor = True
         '
         'userView
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(440, 454)
+        Me.BackColor = System.Drawing.Color.White
+        Me.ClientSize = New System.Drawing.Size(354, 402)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.txt_id)
         Me.Controls.Add(Me.Label5)
